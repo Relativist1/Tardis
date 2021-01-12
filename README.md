@@ -27,7 +27,7 @@ truths = [m_true, b_true, f_true]
 labels = [r"$m_{true}$", r"$b_{true}$",r"$f_{true}$"]
 
 # if Emcee ensemble.sampler is used
-samples = samples = sampler.get_chain(flat=True)
+samples = sampler.get_chain(flat=True)
 
 Tardis(samples, truths=truths, labels =labels, 
 	   savefig='new1.png', diag_shade_color='red',
