@@ -42,7 +42,7 @@ The package is constantly under development.
 Coming soon....
 
 ## Contact
-sbhkmr199@gmail.com
+sbhkmr1999@gmail.com
 
 ## License
 Tardis is licensed under GPLv3. See LICENSE for more details.
