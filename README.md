@@ -5,8 +5,8 @@ This is a very early release of the code, so please create an `issue` or submit 
 * Dynamic and Fancy Plotting
 * Includes KDE (Kernel Distribution Estimation) for 2-D contours
 
-#Contact
+## Contact
 sbhkmr199@gmail.com
 
-#License
+## License
 Tardis is licensed under GPLv3. See LICENSE for more details.
