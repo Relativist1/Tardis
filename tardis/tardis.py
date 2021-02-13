@@ -1,3 +1,20 @@
+#    Tardis Class - Triangular Distribution Plotting for MCMC sampling analysis
+#
+#    Copyright (C) 2020 Saurabh
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 from __future__ import division
 from __future__ import print_function
 
@@ -20,8 +37,8 @@ def Tardis(samples,
                   diag_shade=True,
                   shade_color='Darkblue',
                   diag_shade_color = 'Darkblue',
-                  truth1d=None,
-                  truth2d=None,
+                  truth1d=True,
+                  truth2d=False,
                   truth_titles=False,
                   color_truth='k',
                   lw_truth=1.5,
@@ -62,7 +79,7 @@ def Tardis(samples,
                     ax.set_xlabel(labels[j],fontsize=fontsize)
             if (j==dim-1) :
                 ax.tick_params(labelright=True)
-            if truth2d is not None:
+            if truth2d is not False:
                 ax.axvline(truths[i],color=color_truth,lw=lw_truth)
                 ax.axhline(truths[i],color=color_truth,lw=lw_truth)
                 
@@ -86,7 +103,7 @@ def Tardis(samples,
             if labels is not None:
                 ax.set_xlabel(labels[-1],fontsize=fontsize)
         
-        if truth1d is not None:
+        if truth1d is not False:
             ax.axvline(truths[i],color=color_truth,lw=lw_truth)
         
         N = sns.kdeplot(x=samples[:,i],ax=ax,shade=diag_shade, color=diag_shade_color, lw=lw_1d, **kwargs)
