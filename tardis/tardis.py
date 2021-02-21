@@ -109,16 +109,17 @@ for i in range(dim):
         ax.axvline(truths[i],color=color_truth,lw=lw_truth)
     
     if quantiles is True:
-
         per = np.percentile(samples[:,i], [16, 50, 84])
         Diff = np.diff(per)
         qv = [per[1], Diff[0], Diff[1]]
-
-        txt = r"${{{0:.3f}}}_{{-{1:.3f}}}^{{+{2:.3f}}}$"
-        txt = txt.format(qv[0], qv[1], qv[2])
+        if labels is not None:
+            txt = r"{3} = ${{{0:.3f}}}_{{-{1:.3f}}}^{{+{2:.3f}}}$"
+            txt = txt.format(qv[0], qv[1], qv[2], labels[i])
+        else:
+            txt = r"${{{0:.3f}}}_{{-{1:.3f}}}^{{+{2:.3f}}}$"
+            txt = txt.format(qv[0], qv[1], qv[2])
         if titles is True:
             ax.set_title(txt)
-        print(qv)
         for j in range(dim):
             ax.axvline(qv[j], ls="dashed", color=color_q)
     
@@ -130,3 +131,4 @@ if savefig is not None:
     plt.savefig(fname, bbox_inches='tight', pad_inches = pad_inches,dpi=dpi)
     
 return M, N
+
